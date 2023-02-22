@@ -1,0 +1,20 @@
+run = "kotlinc -d Game.jar Game.kt && kotlin -classpath Game.jar GameKt"
+
+entrypoint = "Game.kt"
+
+hidden=["*.jar"]
+
+[nix]
+channel = "stable-22_05"
+
+[packager]
+language = "java"
+
+[packager.features]
+packageSearch = true
+
+[languages.kotlin]
+pattern = "**/*.{kt,kts,java}"
+
+[languages.kotlin.languageServer]
+start = ["kotlin-language-server"]
